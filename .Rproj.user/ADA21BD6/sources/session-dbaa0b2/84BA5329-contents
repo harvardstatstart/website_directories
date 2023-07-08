@@ -66,21 +66,24 @@ blogdown::install_hugo()
 * **Theme**: input `wowchemy/starter-academic` instead of the default theme `yihui/hugo-lithium`.
   - *Note*: There are different [hugo themes](https://themes.gohugo.io/), e.g. click "download" button on "story" theme page, which will direct you to a [hugo-story github](https://github.com/caressofsteel/hugo-story)). Instead of `wowchemy/starter-academic`, insert `caressofsteel/hugo-story`.
 
-![](./images/new_project_wizard.png)
+![](./images/new_project_wizard_template.png)
 
 ## Step 3: Build a Website
 
-5. To build the website, open the RProject file `yourfoldername.Rproj` in RStudio and type
-  * This command will generate a `public/` subfolder in which the actual code of the website is stored.
-  * After updating, re-run the below code to update `public/` folder. 
+1. To build the website, open the RProject file `yourfoldername.Rproj` in RStudio and type the below.
 ```{r, eval=F}
 blogdown::hugo_build(local=TRUE)
 ```
 
 ![](./images/hugo_build.png)
+## Step 3: Build a Website
+
+2. `blogdown::hugo_build(local=TRUE)` command will generate a `public/` subfolder in which the actual code of the website is stored. After updating, re-run the below code to update `public/` folder. 
+![](./images/widgets_public.png)
 
 ## Step 3: Preview the Website
-6. Previewing the website is very useful as it allows you to see live changes locally inside RStudio, before publishing them. 
+
+3. Previewing the website is very useful as it allows you to see live changes locally inside RStudio, before publishing them. 
 ```{r, eval=F}
 blogdown::serve_site()
 ```
@@ -99,13 +102,18 @@ If the preview does not automatically open in your browser, and instead it previ
 
 * In order to modify the widgets in the first page of the website, go to `/content/_index.md`. 
 * Each widget is separated by `- block:`.
-  - `- block: hero`
+  - `- block: hero`: Hugo academic theme advertisement.
   - `- block:about.avatar` brings your information from `content/authors/admin/_index.md`.
   - `- block:collection` creates widgets for posts and publications.
   - `- block:portfolio` for projects.
   - `- block:markdown` for gallery. 
   
 ![](./images/content_folder.png)
+## Step 2: Remove Hugo academic theme advertisement
+
+* `- block: hero`: remove this section.
+
+
 
 * *Note* that previosuly `/content/home/` included several markdown files corresponding to each widget such as `/content/home/about.md` and `/content/home/publications.nd`. In this version, if you want to remove a section, just open the corresponding file and select `active: false`. If there is no active option, just copy the line `active: false` in the corresponding file.
 ![](./images/widgets.png)

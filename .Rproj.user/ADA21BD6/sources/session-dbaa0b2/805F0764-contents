@@ -1,0 +1,182 @@
+
+# Git
+
+## Download Git
+Download a git for Windows [Git Download](https://git-scm.com/download/win/).
+
+## Get started: Fork and Clone
+
+1. I forked [CausalGPS](https://github.com/fasrc/CausalGPS) Github repository to my repository https://github.com/jennyjyounglee/CausalGPS in [Github](https://github.com/fasrc/CausalGPS) using "fork" button at the top right.
+2. In Github, copy the URL to clone this package to my local desktop. Github>code>clone: https://github.com/jennyjyounglee/CausalGPS.git
+3. I cloned [CausalGPS in my repo](https://github.com/jennyjyounglee/CausalGPS) using Github desktop: File > Clone Repository > type https://github.com/jennyjyounglee/CausalGPS.git. The other way of doing this is: Git Bash > 
+
+```{bash, eval=F}
+git clone https://github.com/jennyjyounglee/CausalGPS.git
+```
+
+4. Then, I'll have Documents/Github/CausalGPS in my local desktop.
+At this point, git should be up to date and will be saying "Your branch is up to date: origin/master".
+
+```{bash, eval=F}
+git status
+```
+
+The git remote command lets you create, view, and delete connections to other repositories. This command list the remote connections you have to other repositories.
+```{bash, eval=F}
+git remote
+```
+Same as the above command, but include the URL of each connection.
+```{bash, eval=F}
+git remote -v
+```
+
+Reference: https://www.atlassian.com/git/tutorials/syncing#:~:text=The%20git%20remote%20command%20lets,direct%20links%20into%20other%20repositories.
+
+## Add upstream folder
+```{bash, eval=F}
+git remote add upstream https://github.com/NSAPH-Software/CausalGPS.git
+git branch --remotes
+```
+
+## Call branches
+This will show hiding branches.
+```{bash, eval=F}
+git branch -a
+```
+To call branch that I want, called "pooling" branch.
+```{bash, eval=F}
+git checkout pooling
+```
+
+## Make changes in my local repo and push to the cloned repo
+After making some changes in code in my local repo, now I want to push this my https://github.com/jennyjyounglee/CausalGPS.
+```{bash, eval=F}
+git add --all
+git commit -m "Made some initial changes to the cloned repo"
+git push origin master
+```
+
+Reference: https://medium.com/techoverflow/git-origin-vs-upstream-vs-branches-e8609af4120
+
+## Change commit message that's already pushed
+I don't like the message of the latest commit that was "Made some initial changes to the cloned repo" which I already pushed. I change the message of the previous commit and pushed again.
+
+```{bash, eval=F}
+git commit --amend -m "Added distance based matching function to CausalGPS"
+# git push --force origin master
+git push --force-with-lease origin master
+```
+Unlike --force, which will destroy any changes someone else has pushed to the branch, --force-with-lease will abort if there was an upstream change to the repository.
+
+Reference: https://www.educative.io/edpresso/how-to-change-a-git-commit-message-after-a-push
+
+## How do I reorder the commit
+The example here is super helpful
+https://stackoverflow.com/questions/2740537/reordering-of-commits
+```{bash, eval=F}
+git log --oneline # to get SHA
+git rebase -i HEAD~<number of commits to SHA>
+git push origin <post-rebase SHA>:master
+git push -f origin master
+```
+
+
+## How to keep local branch up-to-date?
+
+To see which status I'm at: Github > CausalGPS > Insights > Network
+https://github.com/jennyjyounglee/CausalGPS/network
+```{bash, eval=F}
+git status
+git fetch --all # Load the most recent version from the upstream and mine but fetch doesn't saves it
+git log --oneline --decorate --graph --all
+git merge upstream/develop # merge the changes to the local repo, green represents insertion, red means deletion
+# git pull # first fetch and merge, dont recommend
+```
+
+From "<<<<<<< HEAD" to "=======" represents what was on my code in local repo.
+From "=======" to ">>>>>>> upstream/develop" represents what was on upstream remote repo.
+I have to decided which on to keep by deleting either one of them.
+
+```{bash, eval=F}
+git log --oneline --decorate --graph --all # show log file (red-remote, green-local)
+git status
+git add NEWS.md # choose which file to add to the commit
+git commit -m "Updated NEWS.md" # commit with message
+git push --set-upstream origin addipw # push to the remote branch same as where I'm located at locally
+```
+
+## How to remove branch?
+
+Don't suggest rebasing... based on Naeem's advice.
+https://stackoverflow.com/questions/22289345/completely-cancel-a-rebase
+```{bash, eval=F}
+git checkout -b iss111_output_opth_2 # create a new branch, copy of a previous branch that I was working on
+git push --set-upstream origin iss111_output_opth_2 # push to github
+git branch -d  local_branch_name # remove local branch
+git push origin -d branch_name # remove remote branch
+git rebase --abort
+```
+
+## How to see log?
+```{bash, eval=F}
+git log --oneline --decorate --graph --all # show log file (red-remote, green-local)
+```
+
+
+## Branch
+```{bash, eval=F}
+git branch # shows which branches we have
+git checkout addipw # move from current branch to "addipw" branch
+```
+
+## Authenticate with GitHub using a personal access token
+
+1. First, we need to create a personal access token. [A helpful link is this.](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+) For example, an example personal access token looks as
+```{bash, eval=F}
+fgkjldsdfekwrjhkjfvnd2343sdnflknflsknf
+```
+
+2. Second, we need to link between local laptop and Github.
+
+  - If you already have the repository cloned locally
+```{bash, eval=F}
+git remote remove origin
+git remote add origin https://[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME]
+git push
+```
+  - If you are cloning a new repository
+```{bash, eval=F}
+git clone https://[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME]
+```
+or
+```{bash, eval=F}
+$ git clone https://github.com/[REPO-OWNER]/[REPO-NAME].git
+Username: YOUR_USERNAME
+Password: YOUR_PERSONAL_ACCESS_TOKEN
+```
+
+Then, you are all set!
+
+The below provides step-by-step to create personal access token.
+
+1. In the upper-right corner of any page, click your profile photo, then click Settings.
+
+2. In the left sidebar, click  Developer settings.
+
+3. In the left sidebar, under  Personal access tokens, click Fine-grained tokens.
+
+4. Click Generate new token.
+
+5. Under Token name, enter a name for the token.
+
+6. Under Expiration, select an expiration for the token. Optionally, under Description, add a note to describe the purpose of the token.
+
+7. Under Resource owner, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear unless the organization opted in to fine-grained personal access tokens. For more information, see "Setting a personal access token policy for your organization."
+
+8. Under Repository access, select which repositories you want the token to access. You should choose the minimal repository access that meets your needs. Tokens always include read-only access to all public repositories on GitHub. If you selected Only select repositories in the previous step, under the Selected repositories dropdown, select the repositories that you want the token to access.
+
+9. Under Permissions, select which permissions to grant the token. Depending on which resource owner and which repository access you specified, there are repository, organization, and account permissions. You should choose the minimal permissions necessary for your needs. For more information about what permissions are required for each REST API operation, see "Permissions required for fine-grained personal access tokens."
+
+10. Click Generate token.
+
