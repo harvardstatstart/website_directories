@@ -133,31 +133,6 @@ sections:
 - block: collection
   content:
     filters:
-      featured_only: true
-      folders:
-      - publication
-    title: Featured Publications
-  design:
-    columns: "2"
-    view: card
-  id: featured
-- block: collection
-  content:
-    filters:
-      exclude_featured: true
-      folders:
-      - publication
-    text: |-
-      {{% callout note %}}
-      Quickly discover relevant content by [filtering publications](./publication/).
-      {{% /callout %}}
-    title: Recent Publications
-  design:
-    columns: "2"
-    view: citation
-- block: collection
-  content:
-    filters:
       folders:
       - event
     title: Recent & Upcoming Talks
@@ -173,29 +148,16 @@ sections:
 - block: contact
   content:
     address:
-      city: Stanford
+      city: Boston
       country: United States
       country_code: US
-      postcode: "94305"
-      region: CA
-      street: 450 Serra Mall
-    appointment_url: https://calendly.com
+      postcode: "02115"
+      region: MA
+      street: 677 Huntington Ave
     autolink: true
     contact_links:
-    - icon: twitter
-      icon_pack: fab
-      link: https://twitter.com/Twitter
-      name: DM Me
-    - icon: skype
-      icon_pack: fab
-      link: skype:echo123?call
-      name: Skype Me
-    - icon: video
-      icon_pack: fas
-      link: https://zoom.com
-      name: Zoom Me
-    directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
-    email: test@example.org
+    directions: Enter Building 2 and take the stairs to Office on Floor 4
+    email: harvardstatstart@gmail.com
     form:
       formspree:
         id: null

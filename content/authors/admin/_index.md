@@ -1,29 +1,17 @@
 ---
-bio: My research interests include distributed robotics, mobile computing and programmable
-  matter.
-education:
-  courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
-email: ""
-first_name: Alice
+email: "harvardstatstart@gmail.com"
+first_name: Harvard
 highlight_name: true
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
-last_name: Wu
+- Biostatistics
+- Computing skills
+- High school students from underrepresented minority & low-income backgrounds
+- Greater Boston area
 organizations:
-- name: Stanford University
-  url: https://www.stanford.edu/
-role: Professor of Artificial Intelligence
+last_name: StatStart
+organizations:
+- name: Department of Biostatistics, Harvard T.H. Chan School of Public Health
+  url: https://www.hsph.harvard.edu/biostatistics/statstart-a-program-for-high-school-students/
 social:
 - icon: envelope
   icon_pack: fas
@@ -33,24 +21,16 @@ social:
   icon: twitter
   icon_pack: fab
   label: Follow me on Twitter
-  link: https://twitter.com/GeorgeCushen
-- icon: graduation-cap
-  icon_pack: fas
-  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+  link: https://twitter.com/HarvardBiostats
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
-- icon: linkedin
-  icon_pack: fab
-  link: https://www.linkedin.com/
-- icon: cv
-  icon_pack: ai
-  link: uploads/resume.pdf
+  link: https://github.com/harvardstatstart
 status:
   icon: ☕️
 superuser: true
-title: Alice Wu 吳恩達
+title: Harvard StatStart
 ---
 
-Alice Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+StatStart is a one month intensive summer course in biostatistics & computing for high school students from underrepresented minority & low-income backgrounds in the greater Boston area, provided by Department of Biostatistics, Harvard T.H. Chan School of Public Health. The course will teach programming in R, basic statistics, develop high school students’ statistical programming, computational thinking and problem solving skills.
+
 {style="text-align: justify;"}
