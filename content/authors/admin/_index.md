@@ -7,7 +7,6 @@ interests:
 - Computing skills
 - High school students from underrepresented minority & low-income backgrounds
 - Greater Boston area
-organizations:
 last_name: StatStart
 organizations:
 - name: Department of Biostatistics, Harvard T.H. Chan School of Public Health
